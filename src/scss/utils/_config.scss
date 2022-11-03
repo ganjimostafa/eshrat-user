@@ -1,0 +1,19 @@
+@mixin Flex-Box($direction, $justify, $align) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+@font-face {
+  font-family: "Vazir-Regular";
+  src: url(../../assets/fonts/Vazir-Regular-FD.eot),
+    url(../../assets/fonts/Vazir-Regular-FD.ttf),
+    url(../../assets/fonts/Vazir-Regular-FD.woff),
+    url(../../assets/fonts/Vazir-Regular-FD.woff2);
+}
+
+@font-face {
+  font-family: "Hamid";
+  src: url(../../assets/fonts/Far.Hamid.ttf);
+}
