@@ -1,0 +1,31 @@
+@import "../.././scss/utils/config";
+@import "../.././scss/utils/color";
+.navbar {
+  @include Flex-Box(row, space-around, center);
+  width: 100%;
+  padding-top: 10px;
+  font-family: "Vazir-Regular";
+  font-size: 20px;
+  img {
+    width: 50px;
+  }
+  nav {
+    width: 70%;
+    
+    .nav {        
+      @include Flex-Box(row-reverse, center, center);
+      li {
+        padding-right: 15%;
+        list-style-type: none;
+
+        .link {
+          color: $white;
+          text-decoration: none;
+        }
+        .active {
+          border-bottom: 3px solid $blue;
+        }
+      }
+    }
+  }
+}

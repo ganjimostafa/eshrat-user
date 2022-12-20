@@ -1,0 +1,96 @@
+@import "../.././scss/utils/config";
+@import "../.././scss/utils/color";
+
+.landing {
+  font-family: "Vazir-Regular";
+  @include Flex-Box(row-reverse, space-around, stretch);
+  flex-wrap: wrap;
+  margin-top: 40px;
+  &__search {
+    @include Flex-Box(row, center, center);
+    flex-wrap: wrap;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 10px;
+    width: 500px;
+    height: 300px;
+    background-color: $milky;
+    &--toggle {
+      @include Flex-Box(row, center, center);
+      box-sizing: border-box;
+      width: 90%;
+      background-color: $white;
+      border-radius: 10px;
+      box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px,
+        rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+      &--button {
+        font-family: "Vazir-Regular";
+        box-sizing: border-box;
+        width: 35%;
+        height: 100px;
+        background-color: $white;
+        border-radius: 10px;
+      }
+    }
+    &--autocomplete {
+      background-color: $white;
+      font-family: "Vazir-Regular";
+      box-sizing: border-box;
+      margin: 10px;
+      width: 40%;
+      box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px,
+        rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+    }
+
+    &--date {
+      @include Flex-Box(row, center, center);
+      font-family: "Vazir-Regular";
+      box-sizing: border-box;
+      margin: 10px;
+      width: 40%;
+      height: 50px;
+      background-color: $white;
+      box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px,
+        rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+      & span {
+        background-color: $white;
+      }
+      &__picker {
+        &:focus {
+          border: none;
+        }
+        font-family: "Vazir-Regular";
+        box-sizing: border-box;
+        margin: 10px;
+        width: 40%;
+        height: 50px;
+        border: none;
+      }
+    }
+    &--submit {
+      background-color: $purple;
+      color: $white;
+      border-radius: 5px;
+      cursor: pointer;
+      border: none;
+      font-family: "Vazir-Regular";
+      box-sizing: border-box;
+      margin: 10px;
+      width: 40%;
+      height: 50px;
+      box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px,
+        rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+      &:hover {
+        background-color: $light-purple;
+      }
+    }
+  }
+  &__items {
+    width: 55%;
+    @include Flex-Box(row , space-around , center);
+    flex-wrap: wrap;
+    &--img {
+      width: 700px;
+    }
+  }
+}

@@ -1,0 +1,45 @@
+@import "../.././scss/utils/config";
+@import "../.././scss/utils/color";
+.travelCard{
+    @include Flex-Box(row, space-around, center);
+    width: 300px;
+    flex-wrap: wrap;
+    background-color: $milky;
+    border-radius: 10px;
+    margin: 10px;
+    padding-bottom: 10px;
+    &__path{
+        @include Flex-Box(row-reverse, space-between, center);
+        width: 90%;
+        font-size: 20px;
+        font-weight: 600;
+        &--logo{
+            width: 150px;
+        }
+    }
+    &__company{
+        width: 60px;
+    }
+    &__time{
+        @include Flex-Box(column, space-between, flex-end);
+        width: 50%;
+        & div{
+            @include Flex-Box(row, center, center);
+            & img{
+                width: 20px;
+            }
+        }
+    }
+    &__button{
+        @include Flex-Box(row, center, center);
+        width: 40%;
+        height: 40px;
+        background-color: $purple;
+        color: $white;
+        text-decoration: none;
+        border-radius: 5px;
+
+    }
+
+
+}
