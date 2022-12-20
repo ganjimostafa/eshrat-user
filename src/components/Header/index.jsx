@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { NavLink, useLocation } from "react-router-dom";
-import Style from "./Header.module.scss";
+import "./Header.scss";
 import logo from "../../assets/icon/logo.svg";
 
 const HEADER = [
@@ -11,13 +11,16 @@ const HEADER = [
 
 function Header() {
   return (
-    <header className={Style["navbar"]}>
+    <header className="navbar">
       <img src={logo} />
       <nav>
-        <ul className={Style["nav"]}>
+        <ul className="nav">
           {HEADER.map((item, index) => (
             <li key={index + item.href}>
-              <NavLink className={Style["link"]}  to={item.href} activeClassName={Style["active"]}>
+              <NavLink
+                to={item.href}
+                className={({ isActive }) => (isActive ? "active" : "link")}
+              >
                 {item.name}
               </NavLink>
             </li>

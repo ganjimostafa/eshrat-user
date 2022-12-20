@@ -1,7 +1,7 @@
 @import "../.././scss/utils/config";
 @import "../.././scss/utils/color";
 .navbar {
-  @include Flex-Box(row, space-around, center);
+  @include Flex-Box(row, space-evenly, stretch);
   width: 100%;
   padding-top: 10px;
   font-family: "Vazir-Regular";
@@ -10,12 +10,12 @@
     width: 50px;
   }
   nav {
-    width: 70%;
-    
-    .nav {        
-      @include Flex-Box(row-reverse, center, center);
+    width: 60%;
+
+    .nav {
+      @include Flex-Box(row-reverse, space-around, center);
       li {
-        padding-right: 15%;
+        margin-right:30px;
         list-style-type: none;
 
         .link {
@@ -23,6 +23,8 @@
           text-decoration: none;
         }
         .active {
+          color: $white;
+          text-decoration: none;
           border-bottom: 3px solid $blue;
         }
       }

@@ -1,0 +1,103 @@
+@import "../.././scss/utils/config";
+@import "../.././scss/utils/color";
+
+.travel {
+  font-family: "Vazir-Regular";
+  @include Flex-Box(row-reverse, center, stretch);
+  flex-wrap: wrap;
+  margin-top: 40px;
+  box-sizing: border-box;
+  width: 100%;
+  &__info {
+    @include Flex-Box(column, center, center);
+    padding: 20px;
+    margin: 10px;
+    border-radius: 10px;
+    width: 400px;
+    background-color: $milky;
+    &--details {
+      @include Flex-Box(row-reverse, space-around, stretch);
+      flex-wrap: wrap;
+      margin: 10px;
+      & span {
+        padding: 20px;
+      }
+    }
+    & img{
+        width: 200px;
+    }
+  }
+  &__submit {
+    @include Flex-Box(row-reverse, center, center);
+    flex-wrap: wrap;
+    padding: 30px 10px 10px 10px;
+    margin: 10px;
+    border-radius: 10px;
+    width: 500px;
+    background-color: $milky;
+    &--textfield {
+      transform-origin: right !important;
+      background-color: $white;
+      font-family: "Vazir-Regular";
+      box-sizing: border-box;
+      margin: 10px  !important;
+      width: 200px;
+      box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px,
+        rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+    }
+    &--select {
+        @include Flex-Box(row, center, center);
+      &__option {
+        background-color: $white;
+        font-family: "Vazir-Regular";
+        width: 85px;
+        margin: 0 10px 0 10px;
+        box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px,
+          rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+      }
+    }
+    &--date {
+        @include Flex-Box(row, center, center);
+        font-family: "Vazir-Regular";
+        box-sizing: border-box;
+        border-radius: 5px;
+        margin: 10px;
+        width: 200px;
+        height: 50px;
+        background-color: $white;
+        box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px,
+          rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+        & span {
+          background-color: $white;
+        }
+        &__picker {
+          &:focus {
+            border: none;
+          }
+          font-family: "Vazir-Regular";
+          box-sizing: border-box;
+          margin: 10px;
+          width: 60%;
+          height: 50px;
+          border: none;
+        }
+      }
+    &--submit {
+        background-color: $purple;
+        color: $white;
+        border-radius: 5px;
+        cursor: pointer;
+        border: none;
+        font-family: "Vazir-Regular";
+        box-sizing: border-box;
+        margin: 10px;
+        width: 200px;
+        height: 50px;
+        box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px,
+          rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+        &:hover {
+          background-color: $light-purple;
+        }
+    }
+  }
+}

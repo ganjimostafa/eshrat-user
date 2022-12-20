@@ -1,0 +1,22 @@
+@import "../.././scss/utils/config";
+@import "../.././scss/utils/color";
+
+.about {
+  @include Flex-Box(row, space-around, center);
+  font-family: "Vazir-Regular";
+  flex-wrap: wrap;
+  margin-top: 40px;
+  & img {
+    width: 600px;
+  }
+  &__describe {
+    @include Flex-Box(row, space-around, center);
+    flex-wrap: wrap;
+    padding: 40px;
+    margin: 10px;
+    border-radius: 10px;
+    width: 500px;
+    background-color: $milky;
+    direction: rtl;
+  }
+}

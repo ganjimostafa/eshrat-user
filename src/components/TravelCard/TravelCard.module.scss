@@ -2,7 +2,7 @@
 @import "../.././scss/utils/color";
 .travelCard{
     @include Flex-Box(row, space-around, center);
-    width: 300px;
+    width: 330px;
     flex-wrap: wrap;
     background-color: $milky;
     border-radius: 10px;
