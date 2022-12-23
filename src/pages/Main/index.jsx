@@ -9,11 +9,35 @@ import TravelCard from "../../components/TravelCard";
 import { Autocomplete, TextField } from "@mui/material";
 import { CITY_LIST } from "../../data/City";
 import TRAVEL from "../../data/Travel.js";
+import { travelSearch } from "../../api";
+import CircularProgress from '@mui/material/CircularProgress';
 
 function Main() {
-  const [isSearched, setIsSearched] = useState(true);
+  const [isSearched, setIsSearched] = useState(-1);
   const [alignment, setAlignment] = useState("airplane");
-  console.log(alignment);
+
+  const [origin, setOrigin] = useState("");
+  const [destination, setDestination] = useState("");
+  const [date, setDate] = useState("");
+  const [travels, setTravels] = useState([]);
+
+  
+
+  const handleSearch = (e) => {
+    e.preventDefault();
+    setIsSearched(0);
+    travelSearch(alignment, origin, destination, date)
+      .then((data) => {
+        console.log(data);
+        setTravels(data);
+        setIsSearched(1);
+      })
+      .catch((error) => {
+        console.log(error);
+        setIsSearched(0);
+      });
+  };
+
   const handleAlignment = (
     event: React.MouseEvent<HTMLElement>,
     newAlignment: string | null
@@ -25,7 +49,7 @@ function Main() {
 
   return (
     <div className={Style["landing"]}>
-      <form className={Style["landing__search"]}>
+      <form onSubmit={handleSearch} className={Style["landing__search"]}>
         <ToggleButtonGroup
           size="large"
           color="primary"
@@ -68,6 +92,7 @@ function Main() {
           options={CITY_LIST}
           renderInput={(params) => <TextField {...params} label="مبدا" />}
           className={Style["landing__search--autocomplete"]}
+          onChange={(event, op) => setOrigin(op.label)}
         />
         <Autocomplete
           sx={{
@@ -80,6 +105,7 @@ function Main() {
           options={CITY_LIST}
           renderInput={(params) => <TextField {...params} label="مقصد" />}
           className={Style["landing__search--autocomplete"]}
+          onChange={(event, op) => setDestination(op.label)}
         />
 
         <button type="submit" className={Style["landing__search--submit"]}>
@@ -92,26 +118,33 @@ function Main() {
             modalZIndex={50}
             theme={IDatePickerTheme}
             className={Style["landing__search--date__picker"]}
+            onClickSubmitButton={({ value }) =>
+              setDate(new Date(value).toISOString().slice(0, 10))
+            }
           />
         </div>
       </form>
       <div className={Style["landing__items"]}>
-        {isSearched ? (
-          TRAVEL.map((item, index) => (
+        {isSearched == 1 &&
+          travels.map((item, index) => (
             <TravelCard
-              
-              origin={item.origin}
-              destination={item.destination}
-              date={item.date}
-              time={item.time}
-              companyLogo={item.companyLogo}
-              price={item.price}
+              origin={item.origin === undefined ? "" : item.origin}
+              destination={
+                item.destination === undefined ? "" : item.destination
+              }
+              date={item.travelDate === undefined ? "" : item.travelDate}
+              time={item.travelTime === undefined ? "" : item.travelTime}
+              // companyLogo={item.companyLogo}
+              price={item.price === undefined ? "" : item.price}
               href={`/travels/${item.id}`}
             />
-          ))
-        ) : (
+          ))}
+        {isSearched == -1 && (
           <img className={Style["landing__items--img"]} src={landing} />
         )}
+        {isSearched == 0 && <CircularProgress size={100}
+
+         />}
       </div>
     </div>
   );

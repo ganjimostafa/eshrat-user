@@ -12,8 +12,10 @@ function TravelCard({
   time,
   companyLogo,
   price,
+  terminal,
   href = "/",
 }) {
+  
   return (
     <div className={Style["travelCard"]} key={id}>
       <div className={Style["travelCard__path"]}>
@@ -31,13 +33,14 @@ function TravelCard({
         </div>
         <div>
           <span>{date}</span>
-          <img src={Date} />
+          <span>{terminal}</span>
+          {/* <img src={Date} /> */}
         </div>
       </div>
 
       <Link to={href} className={Style["travelCard__button"]}>انتخاب</Link>
 
-      <div className={Style["travelCard__price"]}>{price}</div>
+      <div className={Style["travelCard__price"]}> تومان {price}</div>
     </div>
   );
 }
